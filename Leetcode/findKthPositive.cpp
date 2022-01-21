@@ -11,7 +11,7 @@ public:
             mpp[arr[i]]++;
         }
         
-        for(int i=1; i<=2000; i++){
+        for(int i=1; i<=n+k; i++){
             if(mpp.find(i)==mpp.end()){
                 num=i;
                 count++;
