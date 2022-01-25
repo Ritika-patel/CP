@@ -1,0 +1,12 @@
+-- SOLUTION 1
+
+SELECT Title, Rating FROM IMDB i
+LEFT JOIN earning e 
+ON e.Movie_id = i.Movie_id 
+WHERE MetaCritic>60 AND Domestic>100000000 AND Title LIKE '%2012%';
+
+-- SOLUTION 2
+
+SELECT Title, Rating FROM IMDB
+JOIN earning ON earning.Movie_id = IMDB.Movie_id
+WHERE MetaCritic>60 AND Domestic>100000000 AND Title LIKE '%2012%';
