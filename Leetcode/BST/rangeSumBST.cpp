@@ -49,10 +49,8 @@ class Solution {
     void dfsPreorder(TreeNode* root, int low, int high){
         if(!root) return;
         if(root->val>=low && root->val<=high) sum+=root->val;
-        // dfsPreorder(root->left, low, high);
-        // dfsPreorder(root->right, low, high);
-        if(root->val > low) dfsPreorder(root->left,low,high);
-        if(root->val < high) dfsPreorder(root->right,low,high);
+        dfsPreorder(root->left,low,high);
+        dfsPreorder(root->right,low,high);
     }
 public:
     int rangeSumBST(TreeNode* root, int low, int high) {
