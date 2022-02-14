@@ -74,7 +74,7 @@ int main() {
 
     for(int i=1; i<n; i++){
         mini=INT_MAX;
-        for(int j=1; j<n; j++){
+        for(int j=1; j<=n; j++){
             if(i-j >= 0){
                 jump=dp[i-j]+abs(a[i]-a[i-j]);
                 mini=min(mini, jump);
