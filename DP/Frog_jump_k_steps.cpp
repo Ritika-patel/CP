@@ -53,3 +53,36 @@ int main() {
     cout<<solve(ind, n, arr, ds);
     return 0;
 }
+
+//TABULATION
+//T.C=O(n)*n;
+//S.C=O(n)+O(n)
+
+int main() {
+    int n; cin>>n; 
+    vector<int>a;
+    for(int i=0; i<n; i++){
+        int temp; cin>>temp;
+        a.push_back(temp);
+    }
+
+    vector<int>dp(n, -1);
+    
+    dp[0]=0;
+    int jump=0;
+    int mini=INT_MAX;
+
+    for(int i=1; i<n; i++){
+        mini=INT_MAX;
+        for(int j=1; j<n; j++){
+            if(i-j >= 0){
+                jump=dp[i-j]+abs(a[i]-a[i-j]);
+                mini=min(mini, jump);
+            }
+            dp[j]=mini;
+        }
+    }
+    cout<<dp[n-1];
+    return 0;
+}
+
