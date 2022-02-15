@@ -36,3 +36,23 @@ public:
     }
 };
 
+// SPACE OPTIMIZATION
+class Solution {
+public:    
+    int tribonacci(int n) {
+        int ind=n;
+        vector<int>dp(n+3, 0);
+        dp[0]=0 ,dp[1]=1, dp[2]=1;
+        if(n<=2) return dp[n];
+        
+        int prev1=0, prev2=1, prev3=1;
+        
+        for(int i=3; i<=n; i++){
+            int curi=prev1+prev2+prev3;
+            prev1=prev2;
+            prev2=prev3;
+            prev3=curi;
+        }
+        return prev3;
+    }
+};
