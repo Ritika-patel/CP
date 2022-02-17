@@ -1,0 +1,14 @@
+//RECURSIVE SOLUTION
+int solve(vector<vector<int>>& triangle, int i, int j, int n){
+    if(i==n-1) return triangle[i][j];
+    int x=0, y=0;
+    x=triangle[i][j]+solve(triangle, i+1, j, n);
+    y=triangle[i][j]+solve(triangle, i+1, j+1, n);
+    return min(x, y);
+}
+int minimumPathSum(vector<vector<int>>& triangle, int n){
+	// Write your code here.
+    int i=triangle.size();
+    int j=triangle[0].size();
+    solve(triangle, 0, 0, n);
+}
