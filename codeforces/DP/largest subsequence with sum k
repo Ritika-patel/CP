@@ -1,0 +1,20 @@
+int solve(int tar, int ind, int sum){
+    int take=0, notTake=0;
+    if(ind>tar) return 0;
+    if(sum+ind <= tar){
+        //take
+        take=1+solve(tar, ind+1, sum+ind);
+        //notTake
+        notTake=solve(tar, ind+1, sum);
+    }else{
+        notTake=solve(tar, ind+1, sum);
+    }
+    return max(take, notTake);
+}
+
+int main(){
+    int n; cin>>n;
+    int tar=n;
+    int ind=1, sum=0;
+    cout<<solve(tar, ind, sum);
+}
